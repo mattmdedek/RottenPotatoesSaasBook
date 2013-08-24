@@ -8,12 +8,18 @@ gem 'rails', '3.1.0'
 gem 'haml'
 gem 'sass'
 gem 'hpricot'
+gem 'omniauth-twitter'
 
 group :development, :test do
   gem 'ruby-debug19'
 end
 
-gem 'sqlite3'
+group :production do
+  gem 'pg'
+end
+group :development, :test do
+  gem 'sqlite3'
+end
 
 
 # Gems used only for assets and not required

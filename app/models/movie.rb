@@ -1,4 +1,9 @@
 class Movie < ActiveRecord::Base
+  before_save :capitalize_title
+
+  def capitalize_title
+    self.title = self.title.split(/\s+/).map(&:downcase).map(&:capitalize).join(' ')
+  end
 
   def self.all_ratings
     ['G', 'PG', 'PG-13', 'R', 'NC-17']

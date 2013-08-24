@@ -6,6 +6,8 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
+    #login
+    =render :partial => 'sessions/login'
     =link_to "Matt's Rotten Potatoes", movies_path, :id=>"banner"
     - if flash[:notice]
       #notice.message= flash[:notice]
