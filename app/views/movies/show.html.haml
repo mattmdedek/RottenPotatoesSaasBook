@@ -1,0 +1,19 @@
+%h2 Details About #{@movie.title}
+
+%ul#details
+  %li
+    Rating:
+    = @movie.rating
+  %li
+    Released on:
+    = @movie.release_date.strftime("%B %d, %Y")
+
+%h3 Description:
+
+%p#description= @movie.description
+
+= link_to 'Edit Info', edit_movie_path
+
+%br
+
+= button_to 'Delete', movie_path(@movie), :method => :delete, :confirm => "Are you Sure?"

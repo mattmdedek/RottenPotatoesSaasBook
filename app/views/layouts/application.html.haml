@@ -1,0 +1,15 @@
+!!! 5
+%html
+  %head
+    %title My Rotten Potatoes App
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    =link_to "Matt's Rotten Potatoes", movies_path, :id=>"banner"
+    - if flash[:notice]
+      #notice.message= flash[:notice]
+    - elsif flash[:warning]
+      #warning.message= flash[:warning]
+
+    = yield
