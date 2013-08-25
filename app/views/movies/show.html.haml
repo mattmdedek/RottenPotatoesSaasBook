@@ -12,6 +12,7 @@
 
 %p#description= @movie.description
 
+= link_to 'Review', new_movie_review_path(@movie)
 = link_to 'Edit Info', edit_movie_path
 = link_to 'All Movies', movies_path
 

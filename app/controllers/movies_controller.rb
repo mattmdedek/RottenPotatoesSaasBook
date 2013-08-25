@@ -1,4 +1,15 @@
 class MoviesController < ApplicationController
+  before_filter :has_moviegoer, :only => [:new, :create, :edit, :update]
+
+  protected
+  def has_moviegoer
+    unless @current_user
+      flash[:warning] = "You must be logged in to ... movies."
+      redirect_to movies_path
+    end
+  end
+
+  public
   def index
     @movies = Movie.all.sort_by{|m| m.title}
   end
