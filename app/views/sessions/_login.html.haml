@@ -1,0 +1,8 @@
+#login
+  - if current_user
+    %p.welcome
+      #{current_user.name} &#124; 
+      = link_to 'Log Out', logout_path
+  - else
+    %p.login
+    = link_to 'Log in with your Twitter account', '/auth/twitter'

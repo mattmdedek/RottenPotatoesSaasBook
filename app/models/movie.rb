@@ -1,4 +1,5 @@
 class Movie < ActiveRecord::Base
+  has_many :reviews
   before_save :capitalize_title
 
   def capitalize_title

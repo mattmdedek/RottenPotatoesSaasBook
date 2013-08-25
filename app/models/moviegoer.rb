@@ -1,5 +1,6 @@
 class Moviegoer < ActiveRecord::Base
-  attr_protected :uid, :provider, :name # see text for explanation
+  has_many :reviews
+  attr_protected :uid, :provider # see text for explanation
   def self.create_with_omniauth(auth)
     Moviegoer.create!(
       :provider => auth["provider"],

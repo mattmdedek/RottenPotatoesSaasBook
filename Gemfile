@@ -8,6 +8,7 @@ gem 'rails', '3.1.0'
 gem 'haml'
 gem 'sass'
 gem 'hpricot'
+gem 'omniauth'
 gem 'omniauth-twitter'
 
 group :development, :test do

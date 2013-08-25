@@ -139,6 +139,7 @@ DEPENDENCIES
   haml
   hpricot
   jquery-rails
+  omniauth
   omniauth-twitter
   pg
   rails (= 3.1.0)
