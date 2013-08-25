@@ -58,4 +58,11 @@ class MoviesController < ApplicationController
     flash[:warning] = "#{@movie.title} Deleted."
     redirect_to movies_path
   end
+
+  def movies_with_filters
+    @movies = Movie.with_good_reviews(params[:threshold])
+    %w(for_kids recently_reviewed).each do |filter|
+      @movies = @movies.send(filter) if params[filter]
+    end
+  end
 end

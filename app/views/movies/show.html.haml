@@ -12,10 +12,15 @@
 
 %p#description= @movie.description
 
-= link_to 'Review', new_movie_review_path(@movie)
 = link_to 'Edit Info', edit_movie_path
-= link_to 'All Movies', movies_path
 
 %br
 
-= button_to 'Delete Movie', movie_path(@movie), :method => :delete, :confirm => "Are you Sure?"
+%h3 Reviews:
+= link_to 'Add a Review', new_movie_review_path(@movie)
+
+= render :partial => 'reviews/reviews_table'
+
+%p
+  = link_to 'All Movies', movies_path
+  = button_to 'Delete Movie', movie_path(@movie), :method => :delete, :confirm => "Are you Sure?"

@@ -1,0 +1,11 @@
+- unless @review.errors.empty?
+  #warning
+    Errors prevented review from being processed:
+    %ul
+    - @review.errors.full_messages.each do |error|
+      %li= error
+
+%label Review Comments:
+= text_area :review, :comments
+%label How many potatoes:
+= select_tag 'review[potatoes]', options_for_select(1..5)

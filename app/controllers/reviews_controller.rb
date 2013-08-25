@@ -22,4 +22,20 @@ class ReviewsController < ApplicationController
     @current_user.reviews << @movie.reviews.build(params[:review])
     redirect_to movie_path(@movie)
   end
+
+  def edit
+    @movie = Movie.find params[:movie_id]
+    @review = Review.find params[:id]
+  end
+
+  def update
+    @movie = Movie.find params[:movie_id]
+    @review = Review.find params[:id]
+    if @review.update_attributes(params[:review])
+      flash[:notice] = "Review updated."
+      redirect_to movie_path(@movie)
+    else
+      render 'edit'
+    end
+  end
 end

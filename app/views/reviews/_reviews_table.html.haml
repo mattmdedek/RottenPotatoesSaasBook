@@ -1,0 +1,17 @@
+- if @movie.reviews.count > 0
+  %table.data
+    %thead
+      %tr
+        %th Potatoes
+        %th Preview
+        %th By
+        %th On
+        %th
+    %tbody
+    - @movie.reviews.each do |review|
+      %tr.hilite
+        %td= review.potatoes
+        %td= review.comments[0, 30] + '...'
+        %td= review.moviegoer.name
+        %td= review.created_at
+        %td= link_to 'Edit', edit_movie_review_path(@movie.id, review.id)
